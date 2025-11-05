@@ -1,4 +1,3 @@
----
 ```
 # 🧩 Тестовое задание
 
@@ -7,7 +6,6 @@
 **Язык:** TypeScript
 **Библиотеки:** React, MobX, Leaflet, React-Leaflet, TailwindCSS, Google-Polyline, Axios
 ```
----
 
 ## 1️⃣ Основная задача
 
