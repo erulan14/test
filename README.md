@@ -22,7 +22,7 @@
 * При нажатии выполняется **POST-запрос** на API:
 
   ```
-  https://glot.kz/api/v1/report/{id}/
+  https://glot.kz/api/v2/report/{id}/
   ```
 
   где `id` для теста — **5257**.
