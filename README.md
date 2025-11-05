@@ -2,7 +2,8 @@
 
 ## Практические задачи
 
-Стеки технологии которые нужны quasar, leaflet, google-polyline, axios
+Язык программирование: TypeScript
+Стеки технологии которые нужны react, mobx, leaflet, react-leaflet, tailwind, google-polyline, axios
 
 1. Задача
 Сделать компонент где можно выбрать интервал (от и до с датой и времени) интервал должен быть разделен
@@ -25,9 +26,7 @@ id для теста можете написать 43
   
 **для авторизации нужно получить токен пользователья его вам позже скинуть**
 
-получаете данные и распределяете по таблице как на примере фото 
-![изображение](https://github.com/erulan14/test/assets/42293127/0d753e0f-a42b-4469-9894-d143c05a21ae)
-
+получаете данные и распределяете по таблице, если присмотреться данным там есть вложенные данные они тоже должны показывается должным образом.
 
 Для демонстрации работы компонента необходимо сделать простую HTML страницу.
 
@@ -37,118 +36,230 @@ id для теста можете написать 43
 Пример данных: 
 
 ```js
-{
-  "schema": {
-    "fields": [
-      {
-        "name": "Дата",
-        "type": "string"
-      },
-      {
-        "name": "Пробег, км.",
-        "type": "number"
-      },
-      {
-        "name": "Общий расход топлива, л.",
-        "type": "number"
-      },
-      {
-        "name": "Моточасы, ч/м",
-        "type": "string"
-      },
-      {
-        "name": "Средний скорость",
-        "type": "number"
-      },
-      {
-        "name": "Расход на 100км,л",
-        "type": "number"
-      },
-      {
-        "name": "потребление л/ч",
-        "type": "number"
-      }
+"static": [
+        [
+            "Объект",
+            "Aieke"
+        ],
+        [
+            "Отчет",
+            "Анализ данных"
+        ],
+        [
+            "Длительность парковки",
+            "19 ч. 40 м."
+        ],
+        [
+            "Пробег",
+            "164.38 км"
+        ],
+        [
+            "Длительность поездки",
+            "4 ч. 19 м."
+        ],
+        [
+            "Мак. скорость",
+            "162 км.ч"
+        ],
+        [
+            "Срд. скорость",
+            "40.36 км/ч"
+        ]
     ],
-    "pandas_version": "1.4.0"
-  },
-  "data": [
-    {
-      "Дата": "10.08.2023, 08:16:03",
-      "Пробег, км.": 10.79,
-      "Общий расход топлива, л.": 0,
-      "Моточасы, ч/м": "00ч27м",
-      "Средний скорость": 28,
-      "Расход на 100км,л": 0,
-      "потребление л/ч": 0
-    },
-    {
-      "Дата": "10.08.2023, 11:39:55",
-      "Пробег, км.": 8.58,
-      "Общий расход топлива, л.": 0,
-      "Моточасы, ч/м": "00ч25м",
-      "Средний скорость": 29,
-      "Расход на 100км,л": 0,
-      "потребление л/ч": 0
-    },
-    {
-      "Дата": "10.08.2023, 12:13:37",
-      "Пробег, км.": 12.89,
-      "Общий расход топлива, л.": 0,
-      "Моточасы, ч/м": "01ч20м",
-      "Средний скорость": 23,
-      "Расход на 100км,л": 0,
-      "потребление л/ч": 0
-    },
-    {
-      "Дата": "10.08.2023, 13:57:06",
-      "Пробег, км.": 3.16,
-      "Общий расход топлива, л.": 0,
-      "Моточасы, ч/м": "00ч13м",
-      "Средний скорость": 25,
-      "Расход на 100км,л": 0,
-      "потребление л/ч": 0
-    },
-    {
-      "Дата": null,
-      "Пробег, км.": 35.42,
-      "Общий расход топлива, л.": 0,
-      "Моточасы, ч/м": "0д2ч26м",
-      "Средний скорость": 26,
-      "Расход на 100км,л": 0,
-      "потребление л/ч": 0
+    "items": [
+        {
+            "type": "trip",
+            "name": "Поездки",
+            "header": [
+                "",
+                "Начало",
+                "Нач. положение",
+                "Конч. положение",
+                "Конец",
+                "Длительность",
+                "Пробег",
+                "Макс. скорость",
+                "Средний. скорость"
+            ],
+            "rows": [
+                [
+                    "2025-11-01",
+                    "10:46:50",
+                    "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                    "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                    "18:56:41",
+                    "4 ч. 19 м.",
+                    "164.38 км",
+                    "162 км/ч",
+                    "40.36 км/ч",
+                    [
+                        [
+                            "Aieke",
+                            "10:46:50",
+                            "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                            "Нұрсәт 2, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                            "11:10:35",
+                            "23 мин. 45 с.",
+                            "3.86 км",
+                            "66 км/ч",
+                            "22.00 км/ч"
+                        ],
+                        [
+                            "Aieke",
+                            "11:16:45",
+                            "Нұрсәт 2, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                            "M-32, Ордабасы ауданы, Түркістан облысы, Қазақстан",
+                            "12:32:44",
+                            "1 ч. 15 м.",
+                            "54.32 км",
+                            "138 км/ч",
+                            "53.82 км/ч"
+                        ],
+                        [
+                            "Aieke",
+                            "12:41:25",
+                            "KX-2, Екпінді, Бәйдібек ауданы, Түркістан облысы, Қазақстан",
+                            "Шалдар, Бәйдібек ауданы, Түркістан облысы, Қазақстан",
+                            "12:52:53",
+                            "11 мин. 28 с.",
+                            "5.54 км",
+                            "128 км/ч",
+                            "54.92 км/ч"
+                        ],
+                        [
+                            "Aieke",
+                            "13:52:20",
+                            "Шалдар, Бәйдібек ауданы, Түркістан облысы, Қазақстан",
+                            "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                            "15:14:28",
+                            "1 ч. 22 м.",
+                            "77.21 км",
+                            "162 км/ч",
+                            "58.64 км/ч"
+                        ],
+                        [
+                            "Aieke",
+                            "15:35:19",
+                            "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                            "Бозарық, Қаратау ауданы, Шымкент, Қазақстан",
+                            "16:00:46",
+                            "25 мин. 27 с.",
+                            "12.14 км",
+                            "58 км/ч",
+                            "30.92 км/ч"
+                        ],
+                        [
+                            "Aieke",
+                            "18:16:17",
+                            "Бозарық, Қаратау ауданы, Шымкент, Қазақстан",
+                            "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан",
+                            "18:56:41",
+                            "40 мин. 24 с.",
+                            "11.31 км",
+                            "70 км/ч",
+                            "21.86 км/ч"
+                        ]
+                    ]
+                ],
+                [
+                    "2025-11-02",
+                    "00:00:00",
+                    "",
+                    "",
+                    "00:00:00",
+                    "0 c.",
+                    "0 км/ч",
+                    "0 км/ч",
+                    "0 км/ч",
+                    null
+                ]
+            ],
+            "footer": [
+                "",
+                "10:46:50",
+                "--",
+                "--",
+                "18:56:41",
+                "4 ч. 19 м.",
+                "164 км",
+                "162 км/ч",
+                "40 км/ч"
+            ],
+            "route": "kdsaGepdhL????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????@HAB`@NZf@xQhCjIc@p@bRP`FXbFRjBHpCl@hRp@bQz@hTAf@xVhN~KrFCA?An@^vMrVfE~IZf@x@_AlCiNjA}EDE??@BBHDBB?D^ASzBeLBD????\\GINCTqAjBvC`i@uB~NcFt\\uDjYgKxq@Ij@i@vDGx@}BvPoAvIkFf[i@hDqAbLsF~^iEbXDB@AGl@}@rHcF`_@vFfb@dFhQ`FtRdDrLPp@nCpJ?E~DzNx]~gA@AZl@tAnEr@~CfCvNTr@fApDHr@|E|RxB`K`BlJtBzITvAJ`@rApGz@jIgMvX}CdF{@VG@K??EA???KJ[nCY|@iDzF]p@oBtBSY_HqIg@a]FB\\gBDO??@z@M_@IJg@zAnGgGlVdR_CpE{JtQ{O|RiN~HgNjKOTIHaBfCqNzU}JfQqj@h`AgQhWwHhMqDxFkHfLwTrgAuNhi@}M|a@eG`A??IH?IF`BkA`I}b@t_@_h@|a@k[|QezAxaAg`@tb@qUhXg\\f`@_cCvtCkUpX{JnL_OvKoVhPgXlPw[lS_dBlpAkn@`j@gn@zi@mXnUgZdWqi@le@{j@h\\yLxRco@jm@aHdFoB`C{m@`j@mu@fn@m}AzRoq@zB{T~@md@`Bem@pBc`@hA_k@nE_UrGwtEhdLyw]zfEeTcNkk@y^uYeQuTwSdCw^`L{aBpQgSpVx[xCbGqDbE_DqHIo@EGi@}AQ_@??????????????????????????AA@E?ECEA?CKGMeCiFoDkIkBgIqTf\\cBtVaCp^qA~SmCl^sA`TrSzMdc@pX|XlQ`_@|UdQ`L|V`PdIhFlPaFnlAy[n{BoG|Ym@pn@w@`nByBhx@f@~n@\\rxMmkJtqI_lG|T_Ahx@cCnf@iBry@kRzFgE`ZsWbWeUdTiRxm@gi@hPsNlQwPrSeQp_BotAnl@eh@hk@kg@|f@mc@hl@yg@z{@gj@d]gTxUmOnSqMnG}EfGuGpJiL`JiKfuByeCxh@en@|HyJpPwR`h@gh@~l@kY|eAyx@hm@qg@vR_QlFyEdCgD~Lm[nNqd@jLyj@tEo^T}@rBsGnJkPpIiNjR_YhOkTV[?ENYzKiQjDaHlNiYpFuJbAeBZc@hHuLbJkNhSaNdIsEhVs]\\{@bN}WxDgH@?A@^{@yIib@iF{VoHy]rBmARG~@k@@?s@d@kIaNKe@iIyR}GyN_Lif@cIyY}EwPqCaLiM_c@}BoJzBq]zAoJAKFSxAoKnD_VxDsXbBoLt@uEAA??DBHo@rFab@xAwJ~@uG@@?BRqAbBqNzCyS`Kun@NeAHs@p@iDC?Hg@xBwOF_@AG@@Bm@~@aHiJgToEcJcByDyIaRA@ADYo@mSqLiSyJc@SiI_EwE_CiA}VYsJu@kRmA_WkB{H_Fd@gA{EEu@CASIKKGPA???????????B@Zw@MiH]eJiDAsCf@yAFiEZ]DiAPA???W?eHiY]Qcc@yC{FuBcEYiBKmGUqOy@wFzmAEz@MlFWtMg@~[OpLW|LwAro@u@jT[`OA?@?@BQfAsLkAs[wEm@K_@GiNmBgOsCk@K}]{Foq@uQyCGmQ?wEPA@ZL|TPyBrH}DjOmB~KsA|E{DhQ{@hCqJrd@mAnTaBpR}I{AaDuA`@aHSI????????????????????????????????????????????????????KO?B\\x@QhDGbCbNbB|B_SbA_QZuGv@_OnGgNrCgKxB{IdDmMC?bCyLlEuP`@KrOzA|G~AlR~KrLTbUjDfMzBzSlD|V|DdI|@TFN@DBA??@\\BlDTD??@?@RB|@DJ@FD??F?l@DN?BA?AD?|@JDAp@iQx@q[v@__@ZaRp@ca@\\aSRcIrXoFl@gTfAmd@ViK@e@rL_ApEpBVHbBLpCGxBG`FDz@Jf@HTHr@PzC^VHz@PTB`AVXDTBl@J`@JZJtAZHl@`AnP?V@x@A@Bb@@d@BDxKg@lJ_@h@lR_@v@AW????????????????Aj@JTFE??????????????????????????????????????????????????????????????????????????????????????????????????"
+        },
+        {
+            "type": "parking",
+            "name": "Парковки",
+            "header": [
+                "Начало",
+                "Конец",
+                "Длительность",
+                "Положение"
+            ],
+            "rows": [
+                [
+                    "2025-11-01, 00:00:00",
+                    "2025-11-01, 10:46:50",
+                    "10 ч. 46 м.",
+                    "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан"
+                ],
+                [
+                    "2025-11-01, 11:10:35",
+                    "2025-11-01, 11:16:45",
+                    "6 мин. 10 с.",
+                    "Нұрсәт 2, Қаратау ауданы, Шымкент, 160023, Қазақстан"
+                ],
+                [
+                    "2025-11-01, 12:32:44",
+                    "2025-11-01, 12:41:25",
+                    "8 мин. 41 с.",
+                    "M-32, Ордабасы ауданы, Түркістан облысы, Қазақстан"
+                ],
+                [
+                    "2025-11-01, 12:52:53",
+                    "2025-11-01, 13:52:20",
+                    "59 мин. 27 с.",
+                    "Шалдар, Бәйдібек ауданы, Түркістан облысы, Қазақстан"
+                ],
+                [
+                    "2025-11-01, 15:14:28",
+                    "2025-11-01, 15:35:19",
+                    "20 мин. 51 с.",
+                    "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан"
+                ],
+                [
+                    "2025-11-01, 16:00:46",
+                    "2025-11-01, 18:16:17",
+                    "2 ч. 15 м.",
+                    "Бозарық, Қаратау ауданы, Шымкент, Қазақстан"
+                ],
+                [
+                    "2025-11-01, 18:56:41",
+                    "2025-11-02, 00:00:00",
+                    "5 ч. 3 м.",
+                    "1756, Маржантас, Нұртас, Кайтпас-1, Қаратау ауданы, Шымкент, 160023, Қазақстан"
+                ]
+            ],
+            "footer": [
+                "--",
+                "--",
+                "19 ч. 40 м.",
+                "--"
+            ],
+            "route": ""
+        }
+    ],
+    "Graphs": {
+        "labels": [],
+        "items": []
     }
-  ]
 }
 ```
 
-2. Задача
-Если выполнили 1 задание, в таблице нужно сделать кнопку для показа поездки на карте.
-Нужно получить по нажатием кнопки координаты поездки по api 
-ссылка на api: https://glot.kz/api/v1/route/{id}/
+2. задача допольнительно
 
-**параметры запроса**
-- from – вермя в секнудах (начало интервала)
-- to – время в секундах (конец интервала)
+в внутри данных есть поле route, она показывает путь в каждой поездки но в формате string через библиотеку google-polyline конвертировать в polylinе чтобы потом его нарисовать на карте
 
-**для авторизации нужно получить токен пользователья его вам позже скинуть**
-
-**Формат данных от сервера**
-
-Сервер возвращает JSON-массив данных.
-Пример данных: 
-
-```js
-"wm_hLejmaG??????????????WC??f@KDCDCHAn@Mh@?BE?GIYQg@gAoDIYIQ??CIGOIc@BGNEd@GtAS|YeEfGw@vC]LERC@?J?lAQJ@FDFJR^f@zApAdEfApDTv@fArD~ArDPp@HNB@BD~OMjFy@pFu@hD_@zEw@lB_@`IkANE`@GxAWPEj@Il@MxB[D@PBLFJLfFvN|A~DrAbEr@~BT|@HRPj@bAbDnAzDpAtDhAxDlAnDZhBXp@Vd@Vd@bArDTn@j@`B~@xC~GrSlAtDlA`DRl@L\\BDZd@HAj@IfC_@bDi@dBSXGZGHGFCHCj@I~@KnFq@hG_AfBYtSwCfF}@|@K`AM`AIn@KLEnAy@EOSi@a@yAiAuDwA{DjBkIr@Mp@Kd@KVCp@M~AYnJmAPAVEz@OpBWzDe@\\FzCr@dAVpB`@xBn@`GrAtGxA`@JJFD@FF\\Hr@L~@R`FnAxAR~@ZZFFBHBb@LH?fBaE@EBGXq@t@eBBGKEMCmAWiAMsN|@k@jAINA@}HQ{FqAkAYc@GSEEAQAg@Ow@UoQmAqARGDM?C?EEEEEIM]u@sCqA{DqFcPwAgDqAwDqAsC_@iA}BsHM[Se@gAkCu@}Ae@}@a@yAcEeQMc@IQNmCv@I|F}@~@OJC?CACAEGGIB@B????????CQ??J`@??F???LA??f@K??x@O??nB]??rFw@??vDc@??nAU??T@??@D??EF??}]fFeBTWDOBIBOFa@HiCZaG|@oFr@qFx@qEr@{BNa@@mALoEfAaBTs@LOD??EB]DsAPmDl@sFv@gDb@kALu@JQDONQVW^_Pv@gCRo@FKBiBTcADoAJaBTMAO?A?HGIAMBg@JmCb@gEl@wFbAs_@pFiG`A}Fn@yFv@wW`EE@WBaC^qC`@w@LmAR_G`AyFz@eFt@i@HUDE@KBqARwFp@wDj@_FdAc@^q@`AaA|BwApD_BfD{AvDg@dA[`@OXc@x@@AAGyAfEu@tBk@`A]f@cBlDeBvDOZwArDeFtLA@MTMRIHQXENQl@CHIRKVa@n@g@r@_@nAGfARxAhAvCDNL^P^H\\Vz@pArDnArDx@nClAxD`AtCjArDjFpDl@Kx@KxEs@vFw@vLcBjFu@xDg@hBYXIAISe@cA}@??j@n@PbABBFBF?FCd@IlB[LEG@n@KREHK?GGYUg@c@_AFEPAPAhC]??AR?SEKF?f@Gd@CB@D?P?\\ElAQHAt@vBHLP`@Xj@bApDbAfD^jADT?B??jErLlAnDrAvDlA~Ch@bBBFPBJBJDLAt@OhScDZKbBQp@EhBSnFy@hEm@fG{@zFaAbGw@`YeEtF}@pASZEz@IdBS~FeA~@QREXEREVGXC|Cm@fBSxBWlFu@jC]P?ZErFw@RAn@GNFHRP^vA~DnA`DN^?F@JJT^x@LFP@VEjASrD{@xCg@hHqA~Aa@PClE{@PGv@c@l@ObEm@bGYr@Cj@K@AlGaArFk@VAFCDAb@CLC|@MbAYRa@rC}G@G@?HG@GOCAER?K@ATRGEGA@PNe@GAGDD@DBDzBmEJWOMPk@X[ICJ?JSP_@rBoEFWRk@XaAJQFEDGDE\\u@DGDYDIAODK\\[HKJ[dAaCPa@b@cAx@yBhBaErCmG~AsDXq@~@cBjAiCJu@KIS@c@E[Au@KuZmBEEAECMIu@a@uCOYGO_@o@M]i@{AcAsD}AcEoAeEkAuDuAyDk@qASc@EKCMK[kAuCqAgE}B_GaBwDQ_@?O?UKa@]s@Ws@KUKa@{CyL{@iCIQOa@M_@CEO_@Oc@gAyCAAjLsD?E?CAC|@U`AGpBSnFk@jEe@d@IPC@??@yRtCuFx@w@F{@T}A^cAZGHAJ@LHPRd@z@|BlDlNTfBfApB\\l@BNN`@N`@hG~P~@vBBFEFIAEABCRd@jAbCpAjDXp@ZHNElBa@nFm@fFw@rDk@tAOPBd@HbEt@fFtAtCn@TBb@Lx@P|J~BLFVDn@NXNh@RNDfALj@N\\@x@LtFlA~EvA~MbDvCr@VDBA@ABC?C@C?CDOFMB?FA@@LWIAKBH@???@MHORIZQFKASCk@OcFcA}EiAeF{AaBa@cFkARAaAIm@Ee@EkB_@qCm@QEs@SaBg@kFqAUGOGKA[Gm@OaFmAqFqA]Iw@QuAUk@?O@oARuB\\MAIGCKI]Mw@_AqCGQCAG?K@o@L_BVoF|@cAPm@J[F{AFIIQe@k@eBsAuDg@aBgAkD{B{FUq@m@oAa@u@q@aBIe@U_EoAoDeAuBODX@BOMa@KWaAqDB[b@InFg@jCe@TGEU??@?CECEAC"
-```
-
-После полуение данных, нужно получить координаты зашифрованные через библиотеку google-polyline
-деокодируем коориданты и рисуем на карте линию поездки с использованием библиотеки leaflet
-
-пример на фото
-
-![изображение](https://github.com/erulan14/test_nurdaulet/assets/42293127/c0031af0-6bc5-4ff5-b2ae-5c1ffddf78d1)
-
-
-
+создайте карту на react-leaflet и после нажатии например на таблицу нужную поездку нарисовать на карте эту поездку.
 
 
